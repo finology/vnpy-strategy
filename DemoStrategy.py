@@ -9,6 +9,8 @@ from vnpy.app.cta_strategy import (
     StopOrder
 )
 
+from typing import Any
+
 
 class DemoStrategy(CtaTemplate):
     author = "Simon"
