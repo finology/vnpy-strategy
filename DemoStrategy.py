@@ -12,6 +12,9 @@ from vnpy.app.cta_strategy import (
 from typing import Any
 
 
+"""
+此策略需要放在 ~/strategies 目录下面，才能被vnpy扫描到
+"""
 class DemoStrategy(CtaTemplate):
     author = "Simon"
 
@@ -26,7 +29,9 @@ class DemoStrategy(CtaTemplate):
     slow_ma0 = 0
     slow_ma1 = 0
 
+    # 在界面可以进行修改的
     parameters = ['fast_window', 'slow_window']
+    # 在界面可以展示变量的值的
     variables = ['fast_ma0', 'fast_ma1', 'slow_ma0', 'slow_ma1']
 
     def __init__(
@@ -73,6 +78,7 @@ class DemoStrategy(CtaTemplate):
         """
         self.am.update_bar(bar)
 
+        # 先初始化这个数组, 比如5日均线, 必须要有5天的数据才是inited
         if not self.am.inited:
             return
 
